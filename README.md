@@ -1,6 +1,20 @@
-# GitHub Pages setup
-* Name repo <repo>.github.io, i.e. adam-zakaria.github.io *It's that easy*
-* For settings repo settings -> Pages
+# Install packages
+`npm i`
 
-# Static Site
-We don't use a static site generator - we just create a static site. I guess using word press would make it a dynamic site? Sending requests to the backend. Though there are WordPress site generators. We just need something showable that show Cliptu and Polyglot - it's that simple. But...learning a bit of graphic design, it'll take a little bit.
+# Install Tailwind
+
+https://tailwindcss.com/docs/installation/using-postcss
+
+* Update postcss.config.js to postcss.config.cjs
+
+* For tailwind.config.js, we want to also build .html and .js in /, so we added the second element to content.
+
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: ["./src/**/*.{html,js}", "*.{html,js}"],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+
