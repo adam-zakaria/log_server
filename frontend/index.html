@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+
+    <!-- Your CSS (Tailwind or otherwise) -->
+    <link rel="stylesheet" href="style.css" />
+
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+    <!-- Socket.IO Client CDN -->
+    <script src="https://cdn.socket.io/4.6.1/socket.io.min.js"></script>
+
+
+    <script>
+      // When the DOM is ready...
+      $(document).ready(function() {
+        // 1) Fetch existing logs (HTTP request).
+        fetch("http://localhost:3000/logs")
+          .then((response) => {
+            return response.json(); 
+          })
+          .then((json) => {
+            json['logs'].forEach(line => {
+              $(".logs").append("<pre>" + line + "</pre>");
+            })
+          })
+          .catch((error) => {
+            console.error("Fetch error:", error);
+          });
+
+        // 2) Connect to the Socket.IO server.
+        const socket = io("http://localhost:3000");
+
+        // When a new log message is received, prepend it to the logs container.
+        socket.on("logs", function(newLog) {
+          $(".logs").prepend("<div>" + newLog + "</div>");
+        });
+
+        socket.on("connect", function() {
+          console.log("Connected to Socket.IO server");
+        });
+        
+        socket.on("disconnect", function() {
+          console.warn("Disconnected from Socket.IO server");
+        });
+
+
+      });
+    </script>
+  </head>
+  <body>
+    <h1 class="text-3xl font-bold underline">Hello World</h1>
+    <!-- A container for existing logs -->
+    <div class="logs" style="margin: 1rem; padding: 1rem; ">
+      <!-- Logs will appear here -->
+    </div>
+  </body>
+</html>

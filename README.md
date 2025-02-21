@@ -1,20 +1,9 @@
-# Install packages
-`npm i`
+# Intro
+This is a log server - it provides a web page which displays logs which are POST to its server. This is a nice setup because we can have multiple ec2 instances POST to the server and see the results displayed on the webpage - we can get an overview of a process running on multiple machines.
 
-# Install Tailwind
-
-https://tailwindcss.com/docs/installation/using-postcss
-
-* Update postcss.config.js to postcss.config.cjs
-
-* For tailwind.config.js, we want to also build .html and .js in /, so we added the second element to content.
-
-/** @type {import('tailwindcss').Config} */
-export default {
-  content: ["./src/**/*.{html,js}", "*.{html,js}"],
-  theme: {
-    extend: {},
-  },
-  plugins: [],
-}
-
+# Run
+## Frontend
+```
+npm i
+npm run dev
+```
