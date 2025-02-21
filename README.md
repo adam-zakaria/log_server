@@ -7,3 +7,5 @@ This is a log server - it provides a web page which displays logs which are POST
 npm i
 npm run dev
 ```
+Change frontend port in package.json
+    "dev": "vite --port 1338",

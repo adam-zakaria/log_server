@@ -18,7 +18,7 @@
       // When the DOM is ready...
       $(document).ready(function() {
         // 1) Fetch existing logs (HTTP request).
-        fetch("http://localhost:3000/logs")
+        fetch("http://54.167.31.12:1337/logs")
           .then((response) => {
             return response.json(); 
           })
@@ -32,7 +32,7 @@
           });
 
         // 2) Connect to the Socket.IO server.
-        const socket = io("http://localhost:3000");
+        const socket = io("http://54.167.31.12:1337");
 
         // When a new log message is received, prepend it to the logs container.
         socket.on("logs", function(newLog) {
