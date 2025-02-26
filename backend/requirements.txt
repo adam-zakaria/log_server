@@ -1,0 +1,4 @@
+flask
+flask_cors
+# cd /home/ubuntu/Code/utils; pip install poetry; alias pb='poetry build; pip install -e .' 
+flask_socketio

@@ -1,7 +1,11 @@
 # Install packages
 `npm i`
 
-# Install Tailwind
+# Run
+`npm run dev`
+
+# Notes:
+## How we setup Tailwind 
 
 https://tailwindcss.com/docs/installation/using-postcss
 
