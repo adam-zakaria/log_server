@@ -4,11 +4,10 @@ from flask_socketio import SocketIO, emit
 # Initialize Flask-SocketIO
 ws = SocketIO(app, cors_allowed_origins="*")
 
-
 @app.route("/logs", methods=["POST"])
 def post_logs():
   logs = request.get_json()['logs'] # string
-  utils.wa(logs, 'log.txt')
+  utils.wa(logs, 'logs.txt')
   ws.emit("logs", logs)
   return {"status": "ok", "logged": logs}, 200
 
