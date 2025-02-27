@@ -4,6 +4,9 @@
 # Run
 `npm run dev`
 
+Change frontend port in package.json
+    "dev": "vite --port 1338",
+
 # Notes:
 ## How we setup Tailwind 
 
